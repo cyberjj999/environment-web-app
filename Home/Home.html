@@ -1,0 +1,100 @@
+<!doctype html>
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../Template.css">
+	<link rel="stylesheet" type="text/css" href="home.css">
+	<script src="home.js"></script>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Home</a>
+			<a href="file:///C:/Temp/Wadp%20Project/About%20Us/AboutUs.html">About us</a>
+			<a href="file:///C:/Temp/Wadp%20Project/FAQ/faq.html">FAQ</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Login/LogIn.html">Login</a>
+			<a href="file:///C:/Temp/Wadp%20Project/RegistryPage/RegistryPage.html">Register</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Contact/ContactPage.html">Contact</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Infographics/infographicUpdate.html">Info graphics</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div class="wholeBody">
+			<div class="slideShow">	
+				<div id="slideshowContainer">
+				  <img id="slideimg1" class="mySlides" src="../Img/adv1.jpeg">
+				  <img id="slideimg2" class="mySlides" src="../Img/adv2.jpeg">
+				  <img id="slideimg3" class="mySlides" src="../Img/adv3.jpg">
+				  <div id="slide" class="alternatingImages">
+					<span class="imageAdv" onclick="currentDiv(1)"></span>
+					<span class="imageAdv" onclick="currentDiv(2)"></span>
+					<span class="imageAdv" onclick="currentDiv(3)"></span>
+				  </div>
+			  
+<script>
+
+var currentImage = 0;
+displayImage();
+
+function displayImage() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    currentImage++;
+    if (currentImage > x.length) {currentImage = 1}    
+    x[currentImage-1].style.display = "block";
+    setTimeout(displayImage, 5000); // Change image every 5 seconds
+}
+
+
+</script>
+
+				</div>
+			</div>
+
+			<div class="top-bar">
+
+			</div>
+			<div id="welcome">
+				<div class="reasons">
+					<h1>Reasons to go green!</h1>
+					<ul>
+						<li>Save money</li>
+						<li>Cleaner air</li>
+						<li>Self-sufficient</li>
+						<li>Save rainforests</li>
+					<li>Set as an example for others to follow</li>
+					</ul>
+				<img src="../Img/savetheworld.jpg" alt="savetheworld" class="saveTheWorldImage">
+				</div>
+				<p> Here are some interesting facts about the environment<br>
+					1)  Only 3% of our planet’s water is drinkable. 97% of it is salt water. More than half of the Earth’s fresh water can be found frozen in the glaciers. The rest is underground.<br>
+					2)  The water in our lakes, ponds, streams, rivers, ponds and other surface water makes up 0.3% of our fresh water resource.<br>
+					3)  25% of the bottled water you buy is really municipal tap water.<br>
+					4)  There is more water vapor in the atmosphere than all the combined rivers on the planet.<br>
+					5)  The Niagara Falls process 750,000 gallons of water every second!</p>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+</body>
+</html>

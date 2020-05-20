@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="faq.css" rel="stylesheet" type="text/css">
+<style>
+
+button.collapsible{
+  cursor:pointer;
+  border:none;
+  outline:none;
+  width:100%;
+  text-align:left;
+  background-color:#800000;
+  color: white;
+  padding:13px;
+  transition:0.3s;
+}
+
+button.collapsible:hover{
+    background-color: #FF6347;
+}
+
+button.collapsible.active{
+    background-color: #FF6347;
+  
+
+ }
+
+div.content{
+  background-color:rgba(255,255,255,0.8);
+  color:#000;
+  border-radius:0 0 4px 4px;
+  overflow:hidden;
+  opacity:0;
+  max-height:0;
+  transition:0.3s;
+  padding:0 8px;
+  margin:0;
+}
+
+div.content.show{
+  opacity:1;
+  max-height:500px;
+  padding:8px;
+  margin:2px 0 4px;
+}
+
+</style>
+<script>
+/*var filter = document.getElementById("filter");
+filter.addEventListener("keydown",filterItems);
+function filterItems(e){
+var text = e.target.value.toLowerCase();
+function showAns(){
+    var login = document.getElementById("login");
+    if (login.style.display === "none") {
+        login.style.display = "block";
+    } else {
+        login.style.display = "none";
+    }
+
+}*/
+</script>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Home</a>
+			<a href="file:///C:/Temp/Wadp%20Project/About%20Us/AboutUs.html">About us</a>
+			<a href="file:///C:/Temp/Wadp%20Project/FAQ/faq.html">FAQ</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Login/LogIn.html">Login</a>
+			<a href="file:///C:/Temp/Wadp%20Project/RegistryPage/RegistryPage.html">Register</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Contact/ContactPage.html">Contact</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Infographics/infographicUpdate.html">Info graphics</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<h1> FAQ </h1>
+<p>Hello , how can we help you? </p>
+<input type="text" id="filter" placeholder="Search for Topics,Questions..." onkeyup="filterQns()">
+<!-- <div id="searchBar">
+<input type = "text" id = "filter" placeholder= " Search for Topics,Questions ..."/>
+<button type = "submit"> -->
+</div> <!--figure a way to have 1)A search icon ( a button to submit what they search ?) 
+2) make the place holder bigger (idk if its possible? :o)-->
+<button id="closeAll" onclick="closeAll();"> Close All</button>
+<div id="filteringDiv">
+<div id = "login">
+<h1 id="loginHeader"> Login Issues </h1>
+<button class="collapsible test">I forgot my password , what can i do?  </button>
+<div class = "content">
+<p>Dont worry! As long as you have access to the email you registered your account with , you will be able
+to reset your password , simply go to the login page and click "forget password".
+At there , just enter your email address and a link to reset your password will be sent to you.</p>
+</div>
+<button class="collapsible test">The login page doesn't work!!, what can i do  </button>
+<div class="content">
+<p> Don't worry! We may experience some technical issue at times! If you are able to access this page , it means that the server is not down. We will update you guys via announcement </p>
+</div>
+<button class="collapsible test">I have a private and work/school email address , which should i use to register? </button>
+<div class="content">
+<p>Preferably , we would like you to use your work/school email! This allows us to view your records as a student and update accordingly!</p>
+</div>
+</div>
+
+<hr>
+<hr>
+
+<h1 id="attendanceHeader">Attendance Issues</h1>
+<div id="Attendance">
+<button class="collapsible">I have some unexpected events to attend to and could not attend the activity  </button>
+<div class="content">
+<p>Its alright! Simply call the OIC(overall-in-charge) for the particular event . However , please note that your absent will be recorded in our system.
+Upon reaching 3 absent without valid reasons (eg having MC) , you will receive a warning letter</p>
+</div>
+<button class="collapsible"> I did not mark my attendance </button>
+<div class="content">
+<p>If you have a friend that attended the event , you can tell us his adminNo , after we confirmed his attendance , we would review whether to give you the attendance.
+Else we would ask the OIC for the particular event if he recognizes you.</p>
+</div>
+<button class="collapsible">Do i have any rewards for 100% attendance?  </button>
+<div class="content">
+<p>Yes , u get extra 2 cca points </p>
+</div>
+</div>
+
+<hr>
+<hr>
+
+<h1 id="ebookingSystemHeader">E-booking System Issues</h1>
+<div id="EbookingSystem">
+<button class="collapsible">How to book?  </button>
+<div class="content">
+<p>Go to E-booking System in the page and select timing and all , then press submit.</p>
+</div>
+<button class="collapsible"> How to remove my booking? </button>
+<div class="content">
+<p>There is actually a button that allows you to delete your booking. </p>
+</div>
+<button class="collapsible">What does this do? </button>
+<div class="content">
+<p>This secures you a slot for a particular activity</p>
+</div>
+</div>
+
+<hr>
+<hr>
+
+<h1 id="testimonialtHeader">Testimonial Issues</h1>
+<div id="testimonial">
+<button class="collapsible">What is this for? </button>
+<div class="content">
+<p>This is to boost your testimonial and give you a higher chance to get a job or enter your dream school</p>
+</div>
+<button class="collapsible"> Theres a issue with the tesimonial</button>
+<div class="content">
+<p>Please head over to our main office to tell us the specific problem and we will solve it for you </p>
+</div>
+<button class="collapsible">I need the testimonial ! How do i retrieve it? </button>
+<div class="content">
+<p>You can simply print it at the testimonial page</p>
+</div>
+</div>
+</div>
+
+
+<hr>
+<hr>
+
+<h1 id="contactHeader">Contact Issues</h1>
+<div id="contact">
+<button class="collapsible">I need to solve a issue asap ! What can i do? </button>
+<div class="content">
+<p>If the issue is urgent , please call our number - 87654321 , else you can contact u</p>
+</div>
+<button class="collapsible"> I did not mark my attendance </button>
+<div class="content">
+<p>Too bad fam </p>
+</div>
+<button class="collapsible">Do i have any rewards for 100% attendance?  </button>
+<div class="content">
+<p>Yes , u get extra 2 cca points </p>
+</div>
+</div>
+
+<hr>
+<hr>
+<h1 id="othersHeader">Other Issues</h1>
+<div id="others">
+<button class="collapsible">I lost my belonging during the trip!What do i do?  </button>
+<div class="content">
+<p>Its alright! Simply call the OIC(overall-in-charge) for the particular event . However , please note that your absent will be recorded in our system.
+Upon reaching 3 absent without valid reasons (eg having MC) , you will receive a warning letter</p>
+</div>
+<button class="collapsible"> I did not mark my attendance </button>
+<div class="content">
+<p>Too bad fam </p>
+</div>
+<button class="collapsible">Do i have any rewards for 100% attendance?  </button>
+<div class="content">
+<p>Yes , u get extra 2 cca points </p>
+</div>
+</div>
+
+
+
+
+
+<div id="navBar">
+<ul>
+<li> <a href="#loginHeader">Login</a> </li>
+<li> <a href="#attendanceHeader">Attendance</a> </li>
+<li> <a href="#ebookingSystemHeader">E-booking</a> </li>
+<li> <a href="#testimonialtHeader">Testimonial</a> </li>
+<li> <a href="#contactHeader">Contact</a> </li>
+<li> <a href="#othersHeader">Others</a> </li>
+</ul>
+</div>
+
+
+
+
+
+
+<!-- Work on responsive in terms of when u OPEN COLLAPSIBLE AND RESIZE
+When you resize the button and the width of the collapsible should be at the correct position
+The content dont overflow out of div
+ALso fix the filtering system if u can
+-->
+</div> <!-- This div is for filtring purposes , PUT IT ABOVE SCRIPT AND DONT TOUCH IT -->
+<h2 id="footer"> Still couldn't find a solution to your issue? Dont worry , just send us a message <a href="..\Contact\ContactPage.html"> Here </a>
+<script src="faq.js"> </script>
+<!-- Refer to https://www.lazada.sg/helpcenter/liveup/ to see the nice layout -->
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+</body>
+</html>

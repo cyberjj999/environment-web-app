@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+
+<link rel="stylesheet" href="ContactPage.css" type="text/css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.mContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* The Close Button */
+.remove {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.remove:hover,
+.remove:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mHeader {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.mBody {padding: 2px 16px;}
+
+.mFooter {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+</style>
+</head>
+<body>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Alert</h2>
+    </div>
+    <div class="modal-body">
+      <p>Please confirm your entries</p>
+    </div>
+    <div class="modal-footer">
+      <input type="button" value="confirm" onclick="add();displayMessage();">
+	  <input type="button" value="cancel" onclick="cancel()">
+    </div>
+  </div>
+
+</div>
+<main id="form">
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Home</a>
+			<a href="file:///C:/Temp/Wadp%20Project/About%20Us/AboutUs.html">About us</a>
+			<a href="file:///C:/Temp/Wadp%20Project/FAQ/faq.html">FAQ</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Login/LogIn.html">Login</a>
+			<a href="file:///C:/Temp/Wadp%20Project/RegistryPage/RegistryPage.html">Register</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Contact/ContactPage.html">Contact</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Infographics/infographicUpdate.html">Infographics</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<h1> Contact Us!</h1>
+<p>We would gladly love to help!<br>
+To find our contact details,please refer to the bottom of this page!<br>
+For General/Other Enquiries, please fill in the form below and we will get back to you as soon as we can!</p>
+<form onsubmit = "yousure();return false;" method="post">
+Name:<br>
+<input type="text" name="userName" id="inputname" required>	
+<br>
+Email:
+<img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmwKFmmMPmwPtodnhpitbwg2RdFb89_GsmOOIzp3gp2kPFwUa1" height="20px" width="30px"><br>
+<input type="email" name="email" id="inputemail" required >
+<br>
+Contact No:<br>
+<input type="number" name="contactNo" title="8 digit telephone number" minlength="8" id="inputcontact" required>
+<br>
+Type of Feedback:<br>
+<select name="typeOfFeedback" id="inputTypeOfFeedback">
+ <option value="enquiry">Enquiries</option>
+    <option value="comments">Comments/Requests/Suggestions</option>
+    <option value="complaints">Complaints</option>
+    <option value="compliments">Compliments</option>
+<select>
+<br>
+Subject:<br>
+<select name="subject" id="inputSubject">
+ <option value="home">Home</option>
+ <option value="attendance">Attendance</option>
+    <option value="e-bookingSystem">E-Booking System</option>
+    <option value="contactUs">Contact Us</option>
+    <option value="faq">FAQ</option>
+    <option value="timeTable">Timetable</option>
+    <option value="enrichment">Enrichment</option>
+    <option value="testimonial">Testimonial</option>
+	<option value="aboutUs">About Us</option>
+	<option value="infographics">Infographics</option>
+	<option value="loginPage">Login Page</option>
+	<option value="others">Others</option>
+</select>
+<br>
+Message :<br> 
+
+<textarea name="message" id="message" rows="15" cols="50" required placeholder="Leave your message here!"></textarea>
+<br>
+
+<input type = "submit" value = "Submit" id="submitTest">
+<br>
+
+</div>
+</main>
+
+
+<div id = "msgDiv">
+<span id="tyMessage">
+</span>
+</div>
+<hr>
+<hr>
+<footer>
+<span id="contact">
+Locate us @ AMK180 Ang Mo Kio Avenue 8, 569830 (M-F :8.30am - 6pm , Weekends: 9am - 4pm) 
+<br> Call Us : +65 8765 4321 
+<br>Email us : @nanyangpoly.nyp.edu.sg 
+</span>
+<br>
+<span id = "connect"><br>Connect with us! <br>
+Facebook : Nanyang Poly<br>
+Insta : nanyangpoly<br>
+Twitter : NANYANG POLY</span>
+</footer>
+</form>
+</body>
+<script>
+var formdata = [];
+var d = new Date();
+d.toISOString();
+function add(e) {
+	
+	var time = new Date();
+	if (localStorage.getItem('messages') ===null)  {
+	var data = {};
+	
+	data.name = document.getElementById('inputname').value;
+	data.email = document.getElementById('inputemail').value;
+	data.contact = document.getElementById('inputcontact').value;
+	data.feedback = document.getElementById('inputTypeOfFeedback').value;
+	data.subject = document.getElementById('inputSubject').value;
+	data.message =  document.getElementById('message').value;
+	data.date = time;
+	data.dateOfSubmission = d;
+
+	
+	formdata.push(data);
+	
+	localStorage.setItem('messages', JSON.stringify(formdata));
+	modal.style.display = "none";
+	
+	}
+	
+else {
+	
+	var get = localStorage.getItem('messages');
+	get = JSON.parse(get);
+	
+	for(var i =0;i<get.length;i++){
+	if(document.getElementById('inputname').value == get[i].name &&
+	document.getElementById('inputemail').value == get[i].email &&
+	document.getElementById('inputcontact').value == get[i].contact &&
+	document.getElementById('inputTypeOfFeedback').value == get[i].feedback &&
+	document.getElementById('inputSubject').value == get[i].subject &&
+	document.getElementById('message').value == get[i].message){
+	modal.style.display = "none";
+	alert("Oops! No duplicate messages!");
+	e.preventDefault();
+    //window.history.back();
+	return;
+
+	}
+	}
+	
+	var data = {};
+	
+	data.name = document.getElementById('inputname').value;
+	data.email = document.getElementById('inputemail').value;
+	data.contact = document.getElementById('inputcontact').value;
+	data.feedback = document.getElementById('inputTypeOfFeedback').value;
+	data.subject = document.getElementById('inputSubject').value;
+	data.message =  document.getElementById('message').value;
+	data.date = time;
+	data.dateOfSubmission = d;
+	
+	get.push(data);
+	localStorage.setItem('messages', JSON.stringify(get));
+	
+	modal.style.display = "none";
+	//var submitbutton = document.getElementById("submitTest");
+	//displayMessage();
+	//submitbutton.preventDefault();
+		
+	}
+	
+}
+
+
+function displayMessage(){
+	
+	var containerDiv = document.getElementById("msgDiv");
+	var form = document.getElementById("form");
+	form.style.display="none";
+	//This makes it such that when you click submit ,all form disappears
+		var msgh1 = document.createElement("h1");
+	msgh1.innerText="Thank you for the feedback!";
+		var msgp1 = document.createElement("p");
+	msgp1.innerText="Your form has been successfully submitted!";
+		var msgp2 = document.createElement("p");
+	msgp2.innerText="Your opinions and comments are very important to us and we read every message that we receive!";
+		var msgp3 = document.createElement("p");
+	msgp3.innerText="We hope to be able to improve our service and we appreciate you taking your time to fill out our feedback form!";
+		var msgp4 = document.createElement("p");
+	msgp4.innerText="Still have more questions?"
+		var msgSpan = document.createElement("span");
+	msgSpan.innerText=" Click here to submit another feedback form!";
+	//msgp4.innerText = "OR find our contact details at the bottom of the page";
+	
+	//Append span to p4(last paragraph )
+	msgp4.appendChild(msgSpan);
+	
+	//Appending all the text to the div
+	containerDiv.appendChild(msgh1);
+	containerDiv.appendChild(msgp1);
+	containerDiv.appendChild(msgp2);
+	containerDiv.appendChild(msgp3);
+	containerDiv.appendChild(msgp4);
+
+	//To hyperlink back to submit another form
+	var link = document.createElement("a");
+	msgp4.appendChild(link);
+	link.appendChild(msgSpan);
+	link.href ="test.html";
+	
+} 
+
+function cancel() {
+modal.style.display = "none";
+}
+</script>
+
+
+<!--<script src="ContactPage.js"></script> -->
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("submitTest");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+//btn.onclick = function() {
+   // modal.style.display = "block";
+//}
+
+//var form321 = document.getElementById("form321");
+//form321.onsubmit = 
+function yousure() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+
+</script>
+</html>
+
+

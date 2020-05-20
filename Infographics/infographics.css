@@ -1,0 +1,41 @@
+body {
+	
+	background-image:url("faqBG.jpg");
+	background-size: cover;
+	background-position: center;
+	background-attachment:fixed;
+	background-color:pink
+}
+h1 {
+	font-family:"URW Chancery L", cursive;
+	font-size:200%;
+}
+
+ul {
+	font-weight:bold;
+	font-size:180%;
+	color:red;
+	background-color:lightgrey;
+}
+#ul {
+	width:500px;
+}
+
+#importanceOfRecycling {
+	width:500px;
+	background-color:yellow;
+}
+
+#stillNotConvinced {
+	width:500px;
+	background-color:yellow;
+}
+
+#maybeThisWillHelp {
+	width:500px;
+	background-color:yellow;
+}
+
+#part2 {
+		margin-left:750px;
+}

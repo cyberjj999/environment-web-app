@@ -1,0 +1,52 @@
+<!doctype html>
+<head>
+	<title>View Timing</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="Timing.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="TeacherTiming.js"></script>
+</head>
+<body onload="addslot()">
+
+<div class="topnav" id="myTopnav">
+  <a href="file:///C:/Temp/Wadp%20Project/Teacherhome/Teacherhome.html" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Timing.html">View timing</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Ebooking.html">E-booking</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Points.html">View Enrichment</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/TTestimonial.html">Testimonial</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div class="ebackground">
+<table style="width:50%" id="table">
+	
+	<tr>
+	<th>Name</th>
+	<th>Admin No</th>
+	<th>Person In Charge</th>
+	<th>Date</th>
+	<th>Venue</th>
+	<th>Start Time</th>
+	<th>End Time</th>
+	</tr>
+
+</table>
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+	
+	
+</body>
+</html>

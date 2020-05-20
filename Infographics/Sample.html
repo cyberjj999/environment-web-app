@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>How Americans Die</title>
+
+	<meta name="group" content="Visual Data">
+  <meta property="og:site_name" content="Bloomberg"/>
+  <meta property="og:title" content="How Americans Die">
+  <meta property="og:image" content="../shared/img/visual-data-square.png"/>
+  <meta property="og:description" content="Americans die in smaller portions each year, but what kills us is changing."/>
+  <meta property="og:type" content="article"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@bbgvisualdata"/>
+  <meta name="keywords"
+    content="Bloomberg Visual Data, data visualization, data journalism, data, death, aids, homicide, suicide, drug-induced, alzheimer's, dimentia, mortality, U.S."
+  />
+
+  <link rel="icon" type="image/png" href="global/graphics/img/vdlogo.png">
+  <link rel="stylesheet" href="global/graphics/newfonts.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="graphics/style.css" type="text/css" charset="utf-8">
+
+  <script src="global/js/jquery-1.8.3-min.js" charset="utf-8"></script>
+
+	<script src="js/modernizer.2.7.1.js" charset="utf-8"></script>
+  <script src="js/underscore.1.5.2.js" charset="utf-8"></script>
+	<script src="global/js/less.js" charset="utf-8"></script>
+  <script src="global/js/d3.v2.js" charset="utf-8"></script>
+
+</head>
+<body>
+	<div id="content">
+  <div id="topHat">
+    <ul>
+      <li class="slide"><a href="http://www.bloomberg.com/">Bloomberg.com</a></li>
+      <li class="divider">|</li>
+        <li class="slide"><a href="http://www.businessweek.com/">Businessweek.com</a></li>
+      <li class="divider">|</li>
+        <li id="BTV"><a href="http://www.bloomberg.com/tv/">Bloomberg TV</a></li>
+    </ul>
+  </div>
+
+    <div id="mainbody">
+
+			<div id="visualization" class="inactive">
+        <!-- <img class="imgLoad" src="graphics/imgs/housing5.jpg"> -->
+        <div id="hud1" class="hud hidden">
+          <div class="hudbub">
+            <p id="mName" class="title">data source</p>
+            <p id="mLoc" class="sourceLink"></p>
+            <p id="mCap" class="data"></p>
+          </div>
+          <div class="hpoint down"></div>
+        </div>
+        <div id="chartInfo">
+          <p class="title"></p>
+          <ul id="dLabels"></ul>
+        </div>
+        <div id="fadeScreen" class="splashImage"></div>
+        <div id="notepad">
+          <h6 class="noteNav">How Americans Die</h6>
+          <div id="cycleTools">
+            <div id="fwrdbtn"></div>
+            <div id="backbtn"></div>
+            <div id="refreshbtn"><p>See it again</p></div>
+          </div>
+          <ul id="sceneList" class="noteNav"></ul>
+          <div class="note"></div>
+        </div>
+
+        <div id="dBubbles"></div>
+        <div id="refreshLoad"></div>
+
+        <div id='slider_pager_wrap'>
+          <div id='slider_pager'></div>
+          <a href='#' id='prev'>
+          </a>
+          <a href='#' id='next'>
+          </a>
+        </div>
+
+        <ol id="noteContents">
+          <li class="slide">
+            <div class="sNote">
+              <p class='byLine'><img src='graphics/imgs/klein.png' width='60' height='60'>By Matthew C. Klein / Bloomberg View / April 17, 2014</p>
+              <p class="titlePiece">How Americans Die</p>
+            </div>
+            <div class="cTitle"></div>
+            <img class="slideImage" src="graphics/imgs/die1.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>The mortality rate fell by about 17 percent from 1968 through 2010, years for which we have detailed data.</p>
+              <p>Almost all of this improvement can be attributed to improved survival prospects for <span class="colorCoded" data-set="MortalityMales">men</span>. </p>
+              <p>It looks like progress stopped in the mid-1990s…</p>
+            </div>
+            <div class="cTitle">Mortality rate per 100,000 people</div>
+            <img class="slideImage" src="graphics/imgs/die2.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>…but that&#8217;s only because the population has aged a lot since then.</p>
+            </div>
+            <div class="cTitle">Share of population</div>
+            <img class="slideImage" src="graphics/imgs/die3.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>This has a big effect on the overall mortality rate, because old people die sooner than the young.</p>
+            </div>
+            <div class="cTitle">Mortality rate per 100,000 people by age</div>
+            <img class="slideImage" src="graphics/imgs/die4.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>If you divide the population into separate age cohorts, you can see that  improvements in life expectancy have been broad-based and ongoing.</p>
+              <p>Looking at mortality for each age cohort since 1968, we see that Americans <span class="colorCoded" data-set="Normalized-25"> under 25</span> have made the most progress.</p>
+            </div>
+            <div class="cTitle">Mortality rate per 100,000 people by age (1968 = 100)</div>
+            <img class="slideImage" src="graphics/imgs/die5.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>But one line in this chart looks unusual! Look at the mortality rate for people <span class="colorCoded" data-set="Normalized25-44">aged 25-44</span>.</p>
+            </div>
+            <div class="cTitle">Mortality rate per 100,000 people by age (1968 = 100)</div>
+            <img class="slideImage" src="graphics/imgs/die6.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>What caused the surge in mortality for <span class="colorCoded" data-set="Aids25-44">25- to 44-year-olds</span>? </p>
+              <p>AIDS, which at its peak, killed more than 40,000 Americans a year (more than 30,000 of whom were 25 to 44 years old).</p>
+              <p>(Slowing infection rates and better treatment eventually allowed many of those with the virus  to survive into their 50s and 60s)</p>
+            </div>
+            <div class="cTitle">Victims of AIDS</div>
+            <img class="slideImage" src="graphics/imgs/die7.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>For a few years, <span class="colorCoded" data-set="AIDS">AIDS</span> was the single biggest killer of Americans who should otherwise have been in the prime of their lives.</p>
+            </div>
+            <div class="cTitle">What kills 25- to 44-year-olds (number of deaths)</div>
+            <img class="slideImage" src="graphics/imgs/die8.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>Although AIDS was one of the biggest killers of people in the 25-44 age cohort &#8212; <span class="colorCoded" data-set="AidsAll25-44blackmen">especially black men</span> &#8212; it left most other Americans alone.</p>
+            </div>
+            <div class="cTitle">Proportion of total deaths caused by AIDS</div>
+            <img class="slideImage" src="graphics/imgs/die9.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>Another oddity is that Americans aged 45-54 have made surprisingly little progress in mortality since the late-1990s.</p>
+            </div>
+            <div class="cTitle">Mortality rate per 100,000 people</div>
+            <img class="slideImage" src="graphics/imgs/die10.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>This is particularly striking since <span class="colorCoded" data-set="Cancer45">cancer</span> and <span class="colorCoded" data-set="Heart45">heart disease</span> &#8212; the two biggest killers for 45- to 54-year-olds &#8212; have become much less deadly over the years.</p>
+            </div>
+            <div class="cTitle">What kills 45- to 54-year-olds (number of deaths)</div>
+            <img class="slideImage" src="graphics/imgs/die11.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>While 45- to 54-year-olds are less likely to die from disease, they have become much more likely to commit <span class="colorCoded" data-set="SuicideNorm">suicide</span> or die from <span class="colorCoded" data-set="DrugsNorm">drugs</span>. </p>
+            </div>
+            <div class="cTitle">Deaths from drugs and suicide relative to population among 45- to 54-year-olds (1990 = 100)</div>
+            <img class="slideImage" src="graphics/imgs/die12.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>And, how do suicide and drugs compare to other violent deaths across the population?</p>
+              <p>Far greater than <span class="colorCoded" data-set="FirearmAll">firearm related deaths</span>, and on the rise.</p>
+            </div>
+            <div class="cTitle">Number of deaths</div>
+            <img class="slideImage" src="graphics/imgs/die13.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>Cars, generally killing younger people, have decreased in prevalence.</p>
+            </div>
+            <div class="cTitle">Number of motor vehicle related deaths</div>
+            <img class="slideImage" src="graphics/imgs/die14.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>While suicide, by contrast, doesn&#8217;t discriminate much by age and has recently become the number one violent cause of death.</p>
+            </div>
+            <div class="cTitle">Number of suicide deaths</div>
+            <img class="slideImage" src="graphics/imgs/die15.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>In general, though, most Americans are living longer and dying of natural causes. About a third of all deaths are people <span class="colorCoded" data-set="Share85up">85 and older</span>. </p>
+            </div>
+            <div class="cTitle">Share of deaths</div>
+            <img class="slideImage" src="graphics/imgs/die16.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>The downside to living so long is that it dramatically increases the odds of getting <span class="colorCoded" data-set="Alzheimer75">dementia or Alzheimer&#8217;s</span>. </p>
+              <p>That&#8217;s why total deaths in the 75+ category has stayed constant despite impressive reductions in the propensity to die of <span class="colorCoded" data-set="Heart75">heart disease</span>. </p>
+            </div>
+            <div class="cTitle">What kills 75+ year olds (number of deaths)</div>
+            <img class="slideImage" src="graphics/imgs/die17.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>The rise of Alzheimer&#8217;s and other forms of dementia has had a big impact on health-care costs because these diseases kill their victims slowly.</p>
+              <p>About 40 percent of the total increase in Medicare spending since 2011 can be attributed to greater spending on Alzheimer&#8217;s treatment.</p>
+              <p>(We don&#8217;t have reliable data on Alzheimer&#8217;s spending before that.)</p>
+            </div>
+            <div class="cTitle">Increase in annual Medicare spending (billions of dollars)</div>
+            <img class="slideImage" src="graphics/imgs/die18.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p>Overall, though, the share of U.S. health-care spending going toward nursing and retirement homes has declined slightly since 2000 and has been flat since 2006.</p>
+            </div>
+            <div class="cTitle">Share of total U.S. health-care spending</div>
+            <img class="slideImage" src="graphics/imgs/die19.jpg" />
+          </li>
+          <li class="slide">
+            <div class="sNote">
+              <p class="endNote">Explore other Data View visualizations</p>
+              <ul style="width: 200%;">
+                <li class="dvPreview"><a href="/graphics/dataview/bubble-to-bust-to-recovery/" target="_blank"><img class="slideImage" src="../shared/img/thumb-bubble-bust.png" width="232px" height="118px"/><p>Bubble to Bust to Recovery:<br>2/25/14</p></a><li>
+                <li class="dvPreview"><a href="/graphics/dataview/how-we-spend/" target="_blank"><img class="slideImage" src="../shared/img/thumb-retail.png" width="232px" height="118px"/><p>Retail Sales: 12/20/13</p></a><li>
+                <li class="dvPreview"><a href="/graphics/dataview/what-the-jobs-report-really-means/" target="_blank"><img class="slideImage" src="../shared/img/thumb-jobs.png" width="232px" height="118px"/><p>Jobs Report: 11/8/13</p></a><li>
+              </ul>
+              <p><a id="bviewLink" href="http://www.bloombergview.com/" target="_blank">&rarr;</a></p>
+              <p class="credits"><span>GRAPHIC:</span> Jeremy Scott Diamond / Bloomberg Visual Data</p>
+            </div>
+            <div class="cTitle">Share of total U.S. health-care spending</div>
+          </li>
+        </ol>
+
+      </div>
+
+	</div>
+
+  <div id="endshare" class="sharebar">
+      <ul class="shareBtn">
+        <li class="introtext">Share: </li>
+        <li class="share-twtr"></li>
+        <li class="share-fb"></li>
+        <li class="share-gpls"></li>
+        <li class="share-lin"></li>
+        <li class="share-email"></li>
+      </ul>
+  </div>
+
+  <div id="vdfoot">
+   <!--  <div class="rule"></div> -->
+    <div id="shareFo">
+      <ul class="shareBtn">
+        <li id="share-twtr"></li>
+        <li id="share-fb"></li>
+        <li id="share-gpls"></li>
+        <li id="share-lin"></li>
+        <li id="share-email"></li>
+      </ul>
+    </div>
+    <ul id="footList">
+      <li class="bvdLogo">
+          <a href="/visual-data"><img src="graphics/imgs/BVD-logo-icon-white-text.png" width="219" height="27"/></a>
+      </li>
+    </ul>
+
+  </div>
+
+
+  </div>
+
+  <div id="fb-root"></div>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11413116-1']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <script src="//connect.facebook.net/en_US/all.js"></script>
+
+<!-- TODO: concat and minify all of this together -->
+<script src="js/jquery.cycle.all.js" charset="utf-8"></script>
+<script src="js/jquery.cookie.js" charset="utf-8"></script>
+<script src="js/comscore.js" charset="utf-8"></script>
+<script src="js/tracking.js" charset="utf-8"></script>
+<script src="js/app.js" charset="utf-8"></script>
+</body>
+</html>

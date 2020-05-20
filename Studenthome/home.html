@@ -1,0 +1,117 @@
+<!doctype html>
+<head>
+<title>Signin</title>
+<meta charset=UTF-8>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="StudentHome.css">
+<script src="StudentHome.js"></script>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="file:///C:/Temp/Wadp%20Project/Studenthome/Studenthome.html" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Student\Timing.html">View timing</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student/EbookingHome.html">E-booking</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student\View Epoint.html">View Enrichment</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student\STestimonial.html">Testimonial</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<script>
+function readURL(input) 
+{
+    document.getElementById("displayimage").style.display = "block";
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('displayimage').src =  e.target.result;
+			
+        }
+
+        reader.readAsDataURL(input.files[0]);
+		
+		
+    }
+}
+var thisimage = [];
+
+function store() {
+
+var image = {};
+
+image.img = document.getElementById("image").files[0].name;
+image.name = document.getElementById("name").value;
+
+thisimage.push(image);
+localStorage.setItem('img', JSON.stringify(thisimage));
+document.getElementById('upload').style.display="none";
+
+}
+
+var test;
+function displayimg() {
+test = JSON.parse(localStorage.getItem('img'));
+document.getElementById('displayimage').src = test[0].img;
+}
+</script>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+<div class="title">
+<h1>Student Profile</h1>
+</div>
+
+<div class="formbox">
+<div class="left">
+<img src="" id="displayimage" width="200" height="200"><br>
+<input type="button" value="Upload" onclick="upload()">
+<input type="button"value="Change" onclick="changeProfile()">
+
+
+
+<div id="upload">
+<input type="text" id="name" placeholder="Name :"><br>
+<input type="file" id="image" onchange="readURL(this)"><br>
+<input type="button" id="image2" value="store" onclick="store()">
+<input type="button" id="cancel" value="cancel">
+</div>
+
+<div id="change">
+<select id="changeP" onchange="selectpicture()">
+<option></option>
+</select>
+</div>
+</div>
+<div class="right">
+<p>Name :<span id="sName"></span></p>
+<p>Admin No :<span id="sAdmin"></span></p>
+<p>Email :<span id="sEmail"></span></p>
+</div>
+</div>
+
+<div class="formbox1">
+<h3>Notification</h3>
+<textarea rows="20" cols="50" readonly></textarea>
+</div>
+
+<div class="formbox2">
+<h3>User guide</h3>
+<iframe width="undefined" height="undefined" src="http://www.powtoon.com/embed/exM9azM1yNt/" frameborder="0"></iframe>
+</div>
+
+</body>
+</html>

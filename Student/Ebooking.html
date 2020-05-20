@@ -1,0 +1,255 @@
+<!doctype html>
+<head>
+	<title>Ebooking</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="Ebooking.css">
+	<script src="StudentEbooking.js"></script>
+	<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.mContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* The Close Button */
+.remove {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.remove:hover,
+.remove:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mHeader {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.mBody {padding: 2px 16px;}
+
+.mFooter {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+</style>
+</head>
+<body onload="changecontent()">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Alert</h2>
+    </div>
+    <div class="modal-body">
+      <p id="message"></p>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+
+</div>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="file:///C:/Temp/Wadp%20Project/Studenthome/Studenthome.html" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Student\Timing.html">View timing</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student/EbookingHome.html">E-booking</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student\View Epoint.html">View Enrichment</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student\STestimonial.html">Testimonial</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div class="ebackground">
+<h1>Ebooking Form</h1>
+<div class="division" id="fDivision">
+
+
+	<form class="left" onsubmit="send()">
+	
+		<label>Name :</label>
+		<input type="text" id="name" name="name" class="textBox" autocomplete="off" required pattern="[A-Z a-z]{1,16}"><br>
+	
+		<label>Admin No :</label>
+		<input type="text" id="admin" name="admin" class="textBox" autocomplete="off" required pattern="[0-9]{6}[A-Za-z]{1}"><br>
+	
+		<label>Person-In-Charge :</label>
+		<select name="Person-In-Charge" id="personInCharge" onchange="change()">
+		<option>Select an option</option>
+		</select><br>
+		
+		<label>Venue :</label>
+		<select name="Venue" id="venue" required disabled >
+		<option></option>
+		</select><br>
+		
+		<label>Date :</label>
+		<select name="Date" id="date" required disabled>
+		<option></option>
+		</select><br>
+		
+		<label>Start Time :</label>
+		<select name="sTime" id="stime" required disabled>
+		<option></option>
+		</select><br>
+		
+		<label>End Time :</label>
+		<select name="eTime" id="etime" required disabled>
+		<option></option>
+		</select><br>
+		
+		
+		<input type="submit" value="Submit" id="myBtn" >
+		<input type="button" value="Cancel" id="cancel">
+	</form>
+</div>
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+var cancel = document.getElementById('cancel');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+	document.getElementById("message").innerText="Check your input";
+    modal.style.display = "block";
+}
+
+cancel.onclick = function(){
+
+	document.getElementById("message").innerText="You have cancel your booking";
+    modal.style.display = "block";
+	remove();
+
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script>
+</body>
+</html>

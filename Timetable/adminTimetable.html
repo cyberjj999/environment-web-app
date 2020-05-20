@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="adminTimetable.css" rel="stylesheet" type="text/css"/>
+<style>
+<!--
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.mContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* The Close Button */
+.remove {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.remove:hover,
+.remove:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mHeader {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.mBody {padding: 2px 16px;}
+
+.mFooter {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+} -->
+</style>
+</head>
+<body onload="get()">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Alert</h2>
+    </div>
+    <div class="modal-body">
+      <p>Please confirm your entries</p>
+    </div>
+    <div class="modal-footer">
+      <input type="button" value="confirm" onclick="add()">
+	  <input type="button" value="cancel" onclick="cancel()">
+    </div>
+  </div>
+
+</div>
+<h1>Dear admins , please use this page to update the timetable for upcoming activities , thank you.</h1>
+<div>
+<form onsubmit="add()">
+Date:
+<input type="date" name="somedate" required id="date" max = "2050-01-01">
+Time:
+<input type="time" name="time"  required id="activityTime">
+<br><br>
+Venue:
+<input type="text" name="venue" required id="venue"   autocomplete = "off"> 
+
+Activity Name:
+<input type="text" name="activity" required id="activityName">
+What to bring:
+<input type="text" name="what-to-bring" required id="whatToBring"> 
+Slots available:
+<input type="number" name="slots"  required id = "slotsAvailable" min= "10">
+<br><br><br>
+<input type = "submit" value = "Submit" id="submitTest" id="myBtn">
+
+<input type="button" value="Remove" onclick="removeTimetable()">
+<input type = "reset">
+
+<!--<input type="button" value="Submit" onclick="add()" id="myBtn"> -->
+</div>
+</form>
+
+<table border="1" style= "margin:auto;" class="activity" id="addtable">
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Venue</th>
+<th>Activity Name</th>
+<th>What to bring?</th>
+<th>Slots left</th>
+</table>
+<script>
+//Prevent past date input
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("somedate")[0].setAttribute('min', today);
+
+/*
+var todayTime = new Date();
+todayTime.format("H:MM");
+*/
+</script>
+
+<script>
+var formdata = [];
+var timetable = localStorage.getItem('timetable');
+function add() {
+
+	
+	if (localStorage.getItem('timetable') ===null)  {
+	var data = {};
+	
+	data.date = document.getElementById('date').value;
+	data.activityTime = document.getElementById('activityTime').value;
+	data.venue = document.getElementById('venue').value;
+	data.activityName = document.getElementById('activityName').value;
+	data.whatToBring = document.getElementById('whatToBring').value;
+	data.slotsAvailable =  document.getElementById('slotsAvailable').value;
+
+	
+	formdata.push(data);
+	
+	localStorage.setItem('timetable', JSON.stringify(formdata));
+	
+<!--	modal.style.display = "none"; -->
+	
+	}
+	
+else {
+		
+	var get = localStorage.getItem('timetable');
+	get = JSON.parse(get);
+	
+	for(var i =0;i<get.length;i++){
+	if(document.getElementById('date').value == get[i].date &&
+	document.getElementById('activityTime').value == get[i].activityTime ||
+	//document.getElementById('venue').value == get[i].venue &&
+	document.getElementById('activityName').value == get[i].activityName 
+	)
+	//document.getElementById('whatToBring').value == get[i].whatToBring &&
+	//document.getElementById('slotsAvailable').value == get[i].slotsAvailable)
+	{
+	alert("Oops! You entered the same thing twice!");
+	return;
+
+	}
+	}
+	
+	var data = {};
+	data.date = document.getElementById('date').value;
+	data.activityTime = document.getElementById('activityTime').value;
+	data.venue = document.getElementById('venue').value;
+	data.activityName = document.getElementById('activityName').value;
+	data.whatToBring = document.getElementById('whatToBring').value;
+	data.slotsAvailable =  document.getElementById('slotsAvailable').value;
+	
+	
+	get.push(data);
+	localStorage.setItem('timetable', JSON.stringify(get));
+	
+<!--	modal.style.display = "none"; 	-->
+		
+	}
+}
+
+function removeTimetable() {
+	
+	localStorage.removeItem('timetable');
+	alert("You have successfully removed the added timetable");
+	
+//Display the timetable below , with a cross button(option to cancel away whichever activity/timetable.	
+
+}
+
+function cancel() {
+modal.style.display = "none";
+}
+</script>
+
+
+<script>
+/*
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+*/
+</script>
+<script>
+//Prevent duplicates 
+/*
+function checkExisting(venue){
+	var existing=false;
+	for (i=0; i<timetable.length; i++){
+		var obj=timetable[i];
+		if (obj.venue==venue){
+			existing=true;
+			break;
+		}
+	}
+	if (existing){
+		document.getElementById("submitTest").disabled="true";
+		document.getElementById("nameError").innerHTML="name exist!!";
+		document.getElementById("nameError").style.display="inline";
+	}
+	else {
+	    document.getElementById("submitTest").disabled="";
+		document.getElementById("nameError").style.display="none";
+		alert("Nth is wrong!");
+	}
+	return existing;
+}
+*/
+</script>
+<script src = "adminTimetable.js"></script>
+
+
+
+</body>
+</html>

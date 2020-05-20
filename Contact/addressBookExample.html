@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Address Boox</title>
+<style>
+label {
+	display:block;
+	margin:10px;
+}
+.errMsg {
+	color:red;
+	font-size:0.8em;
+	font-style:italic;
+}
+ul#buttons li {
+	display:inline;
+	margin:5px;
+}
+div#popup {
+	border-radius:10%;
+	background-color:rgba(200,200,200,0.3);
+	padding:20px;
+	position:absolute;
+	left:30%;
+	top:20%;
+	width:30%;
+	height:30%;
+	
+}
+
+table#list {
+	display:none;
+	border-collapse:collapse;
+ 
+}
+table#list tr,th,td {
+	border:1px solid blue;
+}
+
+</style>
+<script>
+document.addEventListener("DOMContentLoaded",docIsReady);
+var addressBook;
+function docIsReady(){
+	
+	addressBook=localStorage.getItem("addressBook");
+ 
+	if (addressBook==null){
+		addressBook=[];
+	}
+	else {	
+		addressBook=JSON.parse(addressBook);
+	}
+	
+	document.getElementById("list").addEventListener("click",function(){
+		this.style.display="none";
+	});
+}
+
+
+function addToBook(){
+	var name=document.getElementById("name").value;
+	if (!checkExisting(name)){ 
+		var contact=document.getElementById("contact").value;		
+		var obj={"name":name,"contact":contact};
+		addressBook.push(obj);
+		localStorage.setItem("addressBook",JSON.stringify(addressBook));
+	}
+}
+function checkExisting(name){
+	var existing=false;
+	for (i=0; i<addressBook.length; i++){
+		var obj=addressBook[i];
+		if (obj.name==name){
+			existing=true;
+			break;
+		}
+	}
+	if (existing){
+		document.getElementById("addBtn").disabled="true";
+		document.getElementById("nameError").innerHTML="name exist!!";
+		document.getElementById("nameError").style.display="inline";
+	}
+	else {
+	    document.getElementById("addBtn").disabled="";
+		document.getElementById("nameError").style.display="none";
+	}
+	return existing;
+}
+
+function findContact(){
+    var found=false;
+	var obj=null;
+	var name=document.getElementById("findName").value;
+	for (i=0; i<addressBook.length; i++){
+		obj=addressBook[i];
+		if (obj.name==name){
+			found=true;
+			break;
+		}
+	}
+	if (found) {
+		console.log(found);
+		document.getElementById("foundContact").innerHTML=obj.contact;
+	}
+	else {
+		console.log(!found);
+		document.getElementById("foundContact").innerHTML="No such Name!!";
+	}
+	
+	return;
+}
+function mainMenu(){
+	document.getElementById("overlay").style.display="block";
+	document.getElementById("popup").style.display="none";
+	document.getElementById("name").value="";
+	document.getElementById("contact").value="";
+	document.getElementById("nameError").style.display="none";
+}
+
+function goSearch() {
+	document.getElementById("overlay").style.display="none";
+	document.getElementById("popup").style.display="block";
+	
+}
+
+function displayAll(){
+
+	addressBook.sort(function(obj1,obj2){
+		if (obj1.name>obj2.name) 
+			return -1;
+		else if (obj1.name<obj2.name)
+			return 1;
+		else 
+			return 0;
+    });
+	
+	for (i=0; i<addressBook.length; i++){ 
+		console.log(i+" --"+addressBook[i])
+		var row=document.getElementById("list").insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		cell1.innerHTML = addressBook[i].name;
+		cell2.innerHTML = addressBook[i].contact;
+	}
+	document.getElementById("list").style.display="table";
+	
+}
+</script>
+</head>
+<body>
+<div id="overlay">
+<h1>My Address Book</h1>
+<label>Name:
+<input type="text" id="name" onkeyup="checkExisting(this.value)" autocomplete="off">
+<span id="nameError" class="errMsg" style="display:none"></span>
+</label>
+<label>Contact Number:
+<input type="text" id="contact">
+</label>
+<ul id="buttons">
+<li>
+<button id="addBtn" onclick="addToBook();" disabled="true">Add</button>
+</li>
+<li>
+<button onclick="goSearch();">Search</button>
+</li>
+<li>
+<button onclick="displayAll();">Display List</button>
+</li>
+</ul>
+</div>
+<div id="popup" style="display:none">
+	<h1>Find Contact</h1>
+	<label>name:
+		<input type="text" id="findName"/>
+	</label>
+	<p id="foundContact"></p>
+	<button onclick="findContact();">Go</button> 
+	<button onclick="mainMenu();">Back To Menu</button>
+</div>
+<table border="1" id="list" style="width:40%;margin:auto">
+<caption style="text-align:center; margin:5px; font-weight:bold">
+Click on table to close
+</caption>
+<thead>
+<tr><th>Name</th><th>Contact</th></tr>
+</thead>
+<tbody>
+</tbody>
+
+</table>
+</body>
+</html>

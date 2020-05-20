@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link href="faq.css" rel="stylesheet" type="text/css">-->
+<style>
+body{background-color:#6a1b9a}
+button.collapsible{
+  cursor:pointer;
+  border:none;
+  outline:none;
+  width:100%;
+  text-align:left;
+  background-color:transparent;
+  color:#fff;
+  padding:8px;
+  margin:4px 0;
+  border-radius:4px;
+  transition:0.3s;
+}
+
+button.collapsible:hover{
+  background-color:rgba(255,255,255,0.3);
+}
+
+button.collapsible.active{
+  background-color:#fff;
+  color:#000;
+  border-radius:4px 4px 0 0;
+  margin:4px 0 0;
+ }
+<!-- impt -->
+div.content{
+  background-color:rgba(255,255,255,0.8);
+  color:#000;
+  border-radius:0 0 4px 4px;
+  overflow:hidden;
+  opacity:0;
+  max-height:0;
+  transition:0.3s;
+  padding:0 8px;
+  margin:0;
+}
+<!-- impt -->
+div.content.show{
+  opacity:1;
+  max-height:500px;
+  padding:8px;
+  margin:2px 0 4px;
+}
+
+</style>
+</head>
+<button onclick="closeAll();">Close All</button>
+<button class="collapsible">
+  Title
+</button>
+<div class="content">
+  Content sahfjgjhg fdj sgsjd 
+  <br>
+  dfjg jd j dfj gdjfgd
+</div>
+
+<button class="collapsible">
+  Title
+</button>
+<div class="content">
+  Content sahfjgjhg fdj sgsjd 
+  dfjg jd j dfj gdjfgd
+</div>
+
+<button class="collapsible">
+  Title
+</button>
+<div class="content">
+  Content sahfjgjhg fdj sgsjd 
+  dfjg jd j dfj gdjfgd
+</div>
+
+
+
+<script>
+var accordions = document.querySelectorAll("button.collapsible");
+
+for (var i = 0; i < accordions.length; i++) {
+  accordions[i].onclick = function() {
+    this.classList.toggle("active");
+    this.nextElementSibling.classList.toggle("show");
+  };
+}
+
+function closeAll() {
+  for (var i = 0; i < accordions.length; i++) {
+    accordions[i].classList.remove("active");
+    accordions[i].nextElementSibling.classList.remove("show");
+  }
+}
+
+</script>
+</body>
+</html>

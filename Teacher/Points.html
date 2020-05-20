@@ -1,0 +1,58 @@
+<!doctype html>
+<head>
+	<title>Enrichment Points</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="Points.css">
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="file:///C:/Temp/Wadp%20Project/Teacherhome/Teacherhome.html" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Timing.html">View timing</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Ebooking.html">E-booking</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Points.html">View Enrichment</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/TTestimonial.html">Testimonial</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<h1>Enrichment Points</h1>
+<div class="division">
+
+
+	<form class="left">
+	
+		<label>Name :</label>
+		<input type="checkbox" id="name" name="name" value="" class="textBox" autocomplete="off"><br>
+		
+		<label>Leadership :</label>
+		<input type="text" id="leaderShip" name="leaderShip" class="textBox" autocomplete="off"><br>
+		
+		<label>Participation :</label>
+		<input type="text" id="participation" name="participation" class="textBox" autocomplete="off"><br>
+		
+		<label>Community Service :</label>
+		<input type="text" id="cService" name="cService" class="textBox" autocomplete="off"><br>
+		
+		
+		
+		<input type="button" value="Submit">
+		<input type="button" value="Cancel">
+	</form>
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+
+</body>
+</html>

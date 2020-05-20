@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="LogIn.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.mContent {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* The Close Button */
+.remove {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.remove:hover,
+.remove:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mHeader {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.mBody {padding: 2px 16px;}
+
+.mFooter {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+</style>
+</head>
+<body onload="changecontent()">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Alert</h2>
+    </div>
+    <div class="modal-body">
+      <p id="message"></p>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+
+</div>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Home</a>
+			<a href="file:///C:/Temp/Wadp%20Project/About%20Us/AboutUs.html">About us</a>
+			<a href="file:///C:/Temp/Wadp%20Project/FAQ/faq.html">FAQ</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Login/LogIn.html">Login</a>
+			<a href="file:///C:/Temp/Wadp%20Project/RegistryPage/RegistryPage.html">Register</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Contact/ContactPage.html">Contact</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Infographics/infographicUpdate.html">Info graphics</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+	
+	<div class="limiter">
+			<div class="container">
+				<form id="login-form">
+				
+					<img src="../Img/wave.png" alt="avatar"><br>
+					<div class="text">
+					
+					<p> This page refreshes if you key in an invalid username or password! </p>
+						
+					</div>
+					
+					<div class="form-input" data-validate="Enter username">
+						<input class="input100" type="text" id="username1" placeholder="Username"
+						required />
+					</div>
+
+					<div class="form-input" data-validate="Enter password">
+						<input class="input100" type="password" id="userpass1" placeholder="Password"
+						 required />
+					</div>
+
+					<div class="container-login100-form-btn">
+						<input type="button" class="btn-login" value="Login" id="myBtn" onclick="usercheck()">
+					</div>
+
+					<div class="forgot-password">
+						<a class="forgetpass" href="../forgotpassword/forgotpassword.html">
+							Forgot Password?
+						</a>
+					</div>
+
+				</form>
+			</div>
+	</div>
+	
+
+	<script type='text/javascript' src='LogIn.js'></script>
+	<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+</body>
+</html>

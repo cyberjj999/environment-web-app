@@ -1,0 +1,55 @@
+body{
+	margin:0;
+	padding:0;
+	text-align:center;
+	background:linear-gradient(rgba(0,0,50,0),rgba(0,100,30,0.4)),url(timetableBackground2.jpg) no-repeat center center fixed ;
+	background-size:cover;
+	linear-gradient(rgba(0,0,50,0),rgba(0,40,100,0.4))
+}
+
+.activity {
+	border-collapse:collapse;
+	border : 2px solid #4F7849;
+	font-size:120%;
+	font-weight:bold;
+	background-color:yellow;
+	
+	
+}
+
+td {
+	padding:20px;
+}
+button {
+	margin:auto;
+   background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+	
+}
+
+ button:hover {
+    background-color: #3e8e41;
+ }
+/*5 image of timetable , link to each student , let them choose which one they use so can compare */
+/*when they register , let them pick which timetable they use , so when they come to this page , the timetable they pick can appear in timetable */
+
+
+
+
+/*Refer to http://orchidparksec.moe.edu.sg/our-engaged-learners/class-timetable */ 
+
+
+#selectedImage {
+ width: 60%;
+   height: 80%;
+}
+
+table {
+	 
+	overflow:auto;
+}

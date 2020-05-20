@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+	<title>View Enrichment Point</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="View Epoint.css">
+	<script src="View Epoint.js"></script>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="file:///C:/Temp/Wadp%20Project/Studenthome/Studenthome.html" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Student\Timing.html">View timing</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student/EbookingHome.html">E-booking</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student\View Epoint.html">View Enrichment</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Student\STestimonial.html">Testimonial</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
+<div class="ebackground">
+<table style="width:50%">
+	<tr>
+	<th>Name</th>
+	<th>LeaderShip</th>
+	<th>Participation</th>
+	<th>Community Service</th>
+	</tr>	
+</table>
+<input type="button" id="print" value="print" onclick="Print()">
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+
+</body>
+</html>

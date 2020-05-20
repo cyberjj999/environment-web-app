@@ -1,0 +1,92 @@
+<!doctype html>
+<head>
+	<title>Testimonial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="TTestimonial.css">
+	<script src="TTestimonial.js"></script>
+
+	
+</head>
+<body onload="change()">
+
+<div class="topnav" id="myTopnav">
+  <a href="file:///C:/Temp/Wadp%20Project/Teacherhome/Teacherhome.html" class="active">Home</a>		
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Timing.html">View timing</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Ebooking.html">E-booking</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/Points.html">View Enrichment</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Teacher/TTestimonial.html">Testimonial</a>
+			<a href="file:///C:/Temp/Wadp%20Project/Home/Home.html">Logout</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div class="ebackground">
+
+<table style="width:50%">
+	<tr>
+	<th rowspan="6">Name</th>
+	<th rowspan="6">admin No</th>
+	<th>Modules</th>
+	<th>Grades</th>
+	<th></th>
+	</tr>
+	
+	<tr>
+	<td>WADP</td>
+	<td id="gWadp"></td>
+	<td></td>
+	</tr>
+	
+	<tr>
+	<td>Cmath</td>
+	<td id="gCmath"></td>
+	<td></td>
+	</tr>
+	
+	<tr>
+	<td>Cstle</td>
+	<td id="gCstle"></td>
+	<td></td>
+	</tr>
+	
+	<tr>
+	<td>PrgEss</td>
+	<td id="gPrgEss"></td>
+	<td></td>
+	</tr>
+	
+	<tr>
+	<td>ComSkill</td>
+	<td id="gComSkill"></td>
+	<td></td>
+	</tr>
+	
+	<tr>
+	<td id="gAlias">
+	<select id="testimonial" onchange="selectvalue()"><option></option>
+	</select>
+	</td>
+	<td id="gAdmin"></td>
+	<td>Achievement</td>
+	<td id="gAchievement"></td>
+	<td><button id="print" onclick="Print()">Print</button></td>
+	</tr>
+	
+</table>
+
+	</div>
+	
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+</body>
+</html>
