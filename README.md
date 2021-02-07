@@ -1,7 +1,7 @@
 # environment-web-app
-Project for Year 1 Sem 1 (WADP) Web Application Design &amp; Project Module
+Year 1 Sem 1 Semestral Project in Nanyang Polytechnic-Web Applications Development & Project (ITP191)
 
-[MY VERY FIRST PROJECT]
+-- First Project in NYP --
 As part of NYP's Web Applications Development & Project Module, I am tasked to develop a complete website covering the front-end and back-end operations
 
 Web Application and Design Project - A series of integrated web pages (website) that strives to improve the environment in Nanyang Polytechnic. This is the first Project in Nanyang Polytechnic that introduces the students to HTML, CSS and Javascript.
